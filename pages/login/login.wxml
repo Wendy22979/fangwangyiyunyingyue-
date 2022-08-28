@@ -1,0 +1,33 @@
+
+<view class="container">
+  <view class="wrapper">
+    <view class="left-top-sign">LOGIN</view>
+    <view class="welcome" >
+      
+      {{qrcodes?"欢迎回来！":"请扫码登录"}}
+    </view>
+    <!-- 目前无法使用账号登录 -->
+    <view class="input-content" wx:if="{{qrcodes}}">
+      <view class="input-item">
+        <text class="tit">手机号码</text>
+        <input  type="text" placeholder="请输入手机号码" id="phone" bindinput="handleInput"/>
+      </view>
+      <view class="input-item">
+        <text class="tit">密码</text>
+        <input type="password"  placeholder="请输入密码"  id="password" bindinput="handleInput"/>
+      </view>
+    </view>
+    <view class="" wx:else>
+	    <canvas style="width: 200px; height: 200px;margin:0 auto" canvas-id="myQrcode"></canvas>
+   </view>
+    <button class="confirm-btn" bindtap="login" wx:if="{{qrcodes}}">登录</button>
+    <view class="forget-section" wx:if="{{qrcodes}}">
+      忘记密码?
+    </view>
+  </view>
+  <view class="register-section">
+    还没有账号?
+    <text >马上注册</text>
+  </view>
+</view>
+
